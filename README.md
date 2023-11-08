@@ -7,6 +7,14 @@
   <a href="https://testit.vc/">
     <img src="Images/logo.png" alt="Logo" width="80" height="80">
   </a>
+  <h3 align="center">Microsoft Teams Direct Routing using powershell</h3>
+</div>
+
+<br />
+<div align="center">
+  <a href="https://testit.vc/">
+    <img src="https://testit.vc/wp-content/uploads/2023/11/MS-Teams-Direct-Routing-1024x502.png" alt="diagram" width="600" height="300">
+  </a>
   <h3 align="center">Create a Microsoft Teams Room Mailbox using powershell</h3>
 </div>
 
@@ -14,10 +22,6 @@
 
 Read through the script to verify it isn’t going to do anything malicious (which you should always do before running someone else’s code)
 
-
-
-
-![image](https://testit.vc/wp-content/uploads/2023/11/MS-Teams-Direct-Routing-1024x502.png)
 
 The script will do the following:
 ```
