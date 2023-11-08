@@ -4,14 +4,11 @@
 # replace your SBC hostname
 
 # START #
-# Connect to O365 tenant and connect to SfBOnline
+# Connect to MS teams
 
-import-Module SkypeOnlineConnector
-$userCredential = Get-Credential
-$sfbSession = New-CsOnlineSession -Credential $userCredential
-import-PSSession $sfbSession
+$UserCredential = Get-Credential
+connect-MicrosoftTeams -Credential $UserCredential -ShowProgress $true
 
-connect-MicrosoftTeams
 # Office 365 Teams Calling Policy Configuration
 Set-CsTeamsCallingPolicy -Identity Global -AllowCallGroups  $true
 Set-CsTeamsCallingPolicy -Identity Global -AllowPrivateCalling $true 
