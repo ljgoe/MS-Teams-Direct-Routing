@@ -1,6 +1,6 @@
-# Run Each set of commands dont run the whole script at once as it will not work. 
+# Run Each set of commands don't run the whole script at once as it will not work. 
 # Yes there are other scripts you can run or download to do this automatically but using this script is good to confirm each line is running and working
-# Replace your phone numbers and extentions in this script in Normalization rules and PSTN Routes
+# Replace your phone numbers and extensions in this script in Normalisation rules and PSTN Routes
 # replace your SBC hostname
 
 # START #
