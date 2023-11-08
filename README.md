@@ -5,17 +5,15 @@
 <br />
 <div align="center">
   <a href="https://testit.vc/">
-    <img src="Images/logo.png" alt="Logo" width="80" height="80">
+    <img src="https://testit.vc/wp-content/uploads/2023/11/logo.png" alt="Logo" width="80" height="80">
   </a>
   <h3 align="center">Microsoft Teams Direct Routing using powershell</h3>
 </div>
 
 <br />
-<div align="center">
+<div align="Left">
   <a href="https://testit.vc/">
-    <img src="https://testit.vc/wp-content/uploads/2023/11/MS-Teams-Direct-Routing-1024x502.png" alt="diagram" width="600" height="300">
-  </a>
-  <h3 align="center">Create a Microsoft Teams Room Mailbox using powershell</h3>
+    <img src="https://testit.vc/wp-content/uploads/2023/11/MS-Teams-Direct-Routing-1024x502.png" alt="diagram" width="650" height="300">
 </div>
 
 ### MS-Teams-Direct-Routing
