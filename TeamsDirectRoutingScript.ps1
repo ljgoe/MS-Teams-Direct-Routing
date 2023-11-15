@@ -126,8 +126,8 @@ Set-CsTenantDialPlan -Identity $DPParent -NormalizationRules @{add = $NR }
 # 2. Create PSTN Routes
 # 3. Create PSTN Policies
 
+# 1.Create PSTN Usages
 $Prefix = 'AU-'
-#Create PSTN Usages
 Set-CsOnlinePstnUsage -Identity global -Usage @{add = "AU-Internal-Calls-1xxx" }
 Set-CsOnlinePstnUsage -Identity global -Usage @{add = "AU-Internal-Calls-44xx" }
 Set-CsOnlinePstnUsage -Identity global -Usage @{add = "AU-Emergency" }
