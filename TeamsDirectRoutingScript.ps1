@@ -5,6 +5,9 @@
 
 # START #
 # Connect to MS teams
+# Note: If you have MFA setup you may get an error when running the commands as below: 
+# "Connect-MicrosoftTeams : A parameter cannot be found that matches parameter name 'ShowProgress'."
+# if this happens just run the base command "connect-MicrosoftTeams"
 
 $UserCredential = Get-Credential
 connect-MicrosoftTeams -Credential $UserCredential -ShowProgress $true
