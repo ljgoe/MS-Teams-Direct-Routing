@@ -123,11 +123,10 @@ Set-CsTenantDialPlan -Identity $DPParent -NormalizationRules @{add = $NR }
 
 # Teams Direct Routing PSTN Voice Components
 # 1. Create PSTN Usages
-# 2. Create PSTN Routes
+# 2. Create PSTN Routes and Assign, configure, and list number manipulation rules on SBCs
 # 3. Create PSTN Policies
 
 # 1.Create PSTN Usages
-$Prefix = 'AU-'
 Set-CsOnlinePstnUsage -Identity global -Usage @{add = "AU-Internal-Calls-1xxx" }
 Set-CsOnlinePstnUsage -Identity global -Usage @{add = "AU-Internal-Calls-44xx" }
 Set-CsOnlinePstnUsage -Identity global -Usage @{add = "AU-Emergency" }
@@ -147,13 +146,14 @@ Set-CsOnlinePSTNUsage -Identity global -Usage @{Add = "AU-TollFree" }
 #Check 
 Get-CSOnlinePSTNUsage
 
+# 2. Create PSTN Routes
 $PSTNGW01 = Get-CSOnlinePSTNGateway -identity 'cube1.lab.testit.vc'
+
 # $PSTNGW02 = Get-CSOnlinePSTNGateway -identity 'SBC.com'
 # $PSTNGW03 = Get-CSOnlinePSTNGateway -identity 'sbc.com'
 # add additional gatewas to the commands below e.g @{add = $PSTNGW01.identity, $PSTNGW02.identity, $PSTNGW03.identity } 
 # New-CsOnlineVoiceRoute -Name "AU-Internal-Calls-1xxx" -Priority 8 -OnlinePstnUsages "AU-Internal-Calls-1xxx" -OnlinePstnGatewayList @{add = $PSTNGW01.identity, $PSTNGW02.identity, $PSTNGW03.identity } -NumberPattern '^(1\d{3})$' -Description "Route 1xxx via via SIP GW"
 
-#PSTN Routes
 New-CsOnlineVoiceRoute -Name "AU-Internal-Calls-1xxx" -Priority 8 -OnlinePstnUsages "AU-Internal-Calls-1xxx" -OnlinePstnGatewayList @{add = $PSTNGW01.identity} -NumberPattern '^(1\d{3})$' -Description "Route 1xxx via SIP GW" 
 New-CsOnlineVoiceRoute -Name "AU-Internal-Calls-44xx" -Priority 9 -OnlinePstnUsages "AU-Internal-Calls-44xx" -OnlinePstnGatewayList @{add = $PSTNGW01.identity} -NumberPattern '^(44\d{2})$' -Description "Route 44xx via SIP GW" 
 
@@ -188,12 +188,13 @@ Set-CSOnlinePSTNGateway $PSTNGW01.identity -OutboundPSTNNumberTranslationRules '
 # Check Rules
 Get-CSOnlinePSTNGateway 
 
-#PSTN Policies
+# 3. Create PSTN Policies
 $Prefix = 'AU-'
+
 # New-CsOnlineVoiceRoutingPolicy  -Identity ($Prefix + 'Queensland-Local') -OnlinePstnUsages  @{add = ($Prefix + 'Emergency'), ($Prefix + 'Queensland-Local'), ($Prefix + 'Service') }
 
-New-CsOnlineVoiceRoutingPolicy  -Identity ($Prefix + 'National-Calling')  -OnlinePstnUsages  @{add = ($Prefix + 'Emergency'), ($Prefix + 'National'), ($Prefix + 'Internal-Calls-1xxx'), ($Prefix + 'Internal-Calls-44xx'), ($Prefix + 'Internal-Calls-xxxx'), ($Prefix + 'Mobile') }
-New-CsOnlineVoiceRoutingPolicy  -Identity ($Prefix + 'International-Calling') -OnlinePstnUsages  @{add = ($Prefix + 'Emergency'), ($Prefix + 'National'), ($Prefix + 'Internal-Calls-1xxx'), ($Prefix + 'Internal-Calls-44xx'), ($Prefix + 'Internal-Calls-xxxx'), ($Prefix + 'Mobile'), ($Prefix + 'International') }
+New-CsOnlineVoiceRoutingPolicy  -Identity ($Prefix + 'National')  -OnlinePstnUsages  @{add = ($Prefix + 'Emergency'), ($Prefix + 'National'), ($Prefix + 'Internal-Calls-1xxx'), ($Prefix + 'Internal-Calls-44xx'), ($Prefix + 'Mobile') }
+New-CsOnlineVoiceRoutingPolicy  -Identity ($Prefix + 'International') -OnlinePstnUsages  @{add = ($Prefix + 'Emergency'), ($Prefix + 'National'), ($Prefix + 'Internal-Calls-1xxx'), ($Prefix + 'Internal-Calls-44xx'),  ($Prefix + 'Mobile'), ($Prefix + 'International') }
 
 ## Enable your test user
 
