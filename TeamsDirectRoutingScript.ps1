@@ -141,6 +141,8 @@ Set-CsOnlinePSTNUsage -Identity global -Usage @{Add = "AU-National" }
 Set-CsOnlinePSTNUsage -Identity global -Usage @{Add = "AU-Mobile" } 
 Set-CsOnlinePSTNUsage -Identity global -Usage @{Add = "AU-Premium" } 
 Set-CsOnlinePSTNUsage -Identity global -Usage @{Add = "AU-International" } 
+Set-CsOnlinePSTNUsage -Identity global -Usage @{Add = "AU-Service" }
+Set-CsOnlinePSTNUsage -Identity global -Usage @{Add = "AU-TollFree" }
 
 #Check 
 Get-CSOnlinePSTNUsage
@@ -158,7 +160,7 @@ New-CsOnlineVoiceRoute -Name "AU-Internal-Calls-44xx" -Priority 9 -OnlinePstnUsa
 New-CsOnlineVoiceRoute -Name "AU-Emergency" -Priority 0 -OnlinePstnUsages "AU-Emergency" -OnlinePstnGatewayList @{add = $PSTNGW01.identity} -NumberPattern '^\+61000$' -Description "Emergency-Calls via SIP GW" 
 New-CsOnlineVoiceRoute -Name "AU-Service" -Priority 6 -OnlinePstnUsages "AU-Service" -OnlinePstnGatewayList @{add = $PSTNGW01.identity} -NumberPattern '^\+61(1[12389]\d*)$' -Description "Service-Calls via SIP GW" 
 New-CsOnlineVoiceRoute -Name "AU-Mobile" -Priority 2 -OnlinePstnUsages "AU-Mobile" -OnlinePstnGatewayList @{add = $PSTNGW01.identity} -NumberPattern '^\+61([45]\d{8})$' -Description "Mobile routing for Australia" | Out-Null
-New-CsOnlineVoiceRoute -Name "AU-TollFree" -Priority 3 -OnlinePstnUsages "AU-Local" -OnlinePstnGatewayList @{add = $PSTNGW01.identity} -NumberPattern '^\+61180(0\d{6}|\d{4})$' -Description "TollFree routing for Australia" | Out-Null
+New-CsOnlineVoiceRoute -Name "AU-TollFree" -Priority 3 -OnlinePstnUsages "AU-TollFree" -OnlinePstnGatewayList @{add = $PSTNGW01.identity} -NumberPattern '^\+61180(0\d{6}|\d{4})$' -Description "TollFree routing for Australia" | Out-Null
 New-CsOnlineVoiceRoute -Name "AU-Premium" -Priority 4 -OnlinePstnUsages "AU-Premium" -OnlinePstnGatewayList @{add = $PSTNGW01.identity} -NumberPattern '^\+6119\d{4,8}|13(\d{4}|00\d{6})$' -Description "Premium routing for Australia" | Out-Null
 New-CsOnlineVoiceRoute -Name "AU-National" -Priority 5 -OnlinePstnUsages "AU-National" -OnlinePstnGatewayList @{add = $PSTNGW01.identity} -NumberPattern '^\+610?[23578]\d{8}' -Description "National routing for  Australia" | Out-Null
 New-CsOnlineVoiceRoute -Name "AU-International" -Priority 7 -OnlinePstnUsages "AU-International" -OnlinePstnGatewayList @{add = $PSTNGW01.identity} -NumberPattern '^\+((1[2-9]\d\d[2-9]\d{6})|((?!(61))([2-9]\d{6,14})))' -Description "International routing for Australia" | Out-Null
