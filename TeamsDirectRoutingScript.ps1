@@ -118,6 +118,7 @@ Set-CsTenantDialPlan -Identity $DPParent -NormalizationRules @{add = $NR }
 
 #Check Rules have been added
 (Get-CsTenantDialPlan “Global”).NormalizationRules | FT Name, Description, Pattern, Translation, IsInternalExtension
+(Get-CsTenantDialPlan).NormalizationRules | FT Name, Description, Pattern, Translation, IsInternalExtension
 
 
 # Teams Direct Routing PSTN Voice Components
