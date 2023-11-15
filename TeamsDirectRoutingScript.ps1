@@ -1,7 +1,9 @@
 # Run Each set of commands don't run the whole script at once as it will not work. 
 # Yes there are other scripts you can run or download to do this automatically but using this script is good to confirm each line is running and working
-# Replace your phone numbers and extensions in this script in Normalisation rules and PSTN Routes
-# replace your SBC hostname
+
+### Before you Start ###
+# 1. Replace your phone numbers and extensions in this script in Normalisation rules and PSTN Routes
+# 2. Replace cube1.lab.testit.vc with your SBC hostname
 
 # START #
 # Connect to MS teams
