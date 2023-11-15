@@ -1,6 +1,3 @@
-<a name="readme-top"></a>
-<!--
-
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
@@ -41,7 +38,10 @@ d.	Normalization rules for Victoria and Tasmania region, Australia, 03 area code
 8.	Assign, configure, and list number manipulation rules on SBCs
 9.	PSTN Policies
 10.	Apply polices to a test user
- 
-
-
 ```
+
+### Once this is done test it using the MS Teams voice tester: 
+
+https://github.com/ljgoe/MS-Teams-Voice-Tester
+
+![](https://testit.vc/wp-content/uploads/2023/11/MSTeamsVoiceTester.png)
