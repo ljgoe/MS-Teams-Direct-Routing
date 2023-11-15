@@ -2,7 +2,7 @@
 # Yes there are other scripts you can run or download to do this automatically but using this script is good to confirm each line is running and working
 
 ### Before you Start ###
-# 1. Replace your phone numbers and extensions in this script in Normalisation rules and PSTN Routes
+# 1. Replace the phone numbers (+61712345$1 and +6121231$1) and extensions in this script in Normalisation rules and PSTN Routes with your own numbers
 # 2. Replace cube1.lab.testit.vc with your SBC hostname
 
 # START #
