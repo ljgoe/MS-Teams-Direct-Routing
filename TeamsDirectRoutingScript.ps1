@@ -207,7 +207,7 @@ Set-CsPhoneNumberAssignment -Identity "user1@lab.testit.vc" -EnterpriseVoiceEnab
 Set-CsPhoneNumberAssignment -Identity "user1@lab.testit.vc" -PhoneNumber "+61712345001" -PhoneNumberType DirectRouting
 
 # Assign the voice routing policy (which determines where they are allowed to call) and the dialplan (Which determines which location they are in e.g Queensland) to a user
-Grant-CsOnlineVoiceRoutingPolicy -Identity "user1@lab.testit.vc" -PolicyName "AU-International-Calling"
+Grant-CsOnlineVoiceRoutingPolicy -Identity "user1@lab.testit.vc" -PolicyName "AU-International"
 Grant-CsTenantDialPlan -Identity "user1@lab.testit.vc" -PolicyName "AU-Queensland"
 
 Get-CsOnlineUser -Identity user1@lab.testit.vc
